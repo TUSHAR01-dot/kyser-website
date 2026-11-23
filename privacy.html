@@ -1,0 +1,186 @@
+<!-- privacy.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KYSER — Privacy Policy</title>
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Kyser Privacy Policy — what data we collect, how we use it, and the controls you have.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080B;--bg2:#0f0d16;--p:#8B5CF6;--p2:#5b34c7;--pd:#1a1230;--y:#FFD500;--t:#f4f2fa;--m:#a29cb8;box-sizing:border-box;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6;overflow-x:hidden;min-height:100dvh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(900px,100% - 40px);margin-inline:auto}
+
+/* background grid lines (same as site) */
+.bg-lines{position:fixed;inset:0;z-index:0;pointer-events:none;
+ background-image:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 150px),
+  repeating-linear-gradient(90deg,rgba(139,92,246,.09) 0 1px,transparent 1px 600px);
+ background-position:center top}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:.86rem;border:2px solid transparent;transition:transform .25s,box-shadow .25s,background .25s,color .25s;cursor:pointer;font-family:inherit;justify-content:center}
+.btn-y{background:var(--y);color:#000}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 10px 28px -6px rgba(255,213,0,.5)}
+.btn-o{border-color:var(--p);color:var(--t);background:transparent}
+.btn-o:hover{background:var(--p);transform:translateY(-2px)}
+
+/* nav */
+nav{position:sticky;top:0;left:0;right:0;z-index:50;background:rgba(8,8,11,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(139,92,246,.18)}
+.nb{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;width:min(1160px,100% - 40px);margin-inline:auto}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.16em;font-size:1.05rem}
+.nlinks{display:flex;align-items:center;gap:22px;font-size:.85rem;color:var(--m)}
+.nlinks a:not(.btn){transition:color .2s}
+.nlinks a:not(.btn):hover{color:#fff}
+.nlinks a[aria-current="page"]{color:#fff}
+
+/* page */
+main{position:relative;z-index:2;flex:1;padding:64px 0 96px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--m);font-size:.82rem;letter-spacing:.04em;margin-bottom:28px;transition:color .2s}
+.back:hover{color:var(--p)}
+.back svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.eyebrow{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--p);font-weight:600;display:block;margin-bottom:14px}
+h1{font-weight:800;font-size:clamp(1.9rem,5.4vw,3.2rem);line-height:1.04;letter-spacing:-.03em;text-transform:uppercase}
+.updated{color:var(--m);font-size:.82rem;margin-top:12px}
+.rule{height:1px;background:linear-gradient(90deg,rgba(139,92,246,.6),rgba(139,92,246,0));margin:34px 0 4px;border:0}
+
+.prose h2{font-weight:700;font-size:1.02rem;letter-spacing:-.01em;text-transform:none;color:#fff;margin:34px 0 10px;line-height:1.3}
+.prose h2:first-child{margin-top:0}
+.prose h2 span{color:var(--p);margin-right:10px;font-weight:800;font-size:.86rem;letter-spacing:.1em}
+.prose p,.prose li{color:var(--m);font-size:.95rem;line-height:1.78}
+.prose p{margin-bottom:12px}
+.prose ul{margin:8px 0 14px 20px}
+.prose li{margin-bottom:7px}
+.prose li::marker{color:var(--p)}
+.prose strong{color:#e6e0f6;font-weight:600}
+.prose a{color:var(--p);text-decoration:underline;text-underline-offset:2px}
+.prose a:hover{color:#c4b0ff}
+.note{margin-top:40px;padding:18px 20px;border:1px solid rgba(139,92,246,.3);border-radius:14px;background:rgba(139,92,246,.07);font-size:.88rem;color:var(--m)}
+.note strong{color:#fff}
+
+/* footer */
+footer{position:relative;z-index:2;border-top:1px solid rgba(139,92,246,.2);padding:34px 0 40px}
+.fbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;width:min(1160px,100% - 40px);margin-inline:auto}
+.fl{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--m);font-size:.84rem}
+.fl a:hover{color:var(--p)}
+.copy{color:#6c6685;font-size:.76rem}
+
+@media(max-width:620px){
+ .nlinks a:not(.btn){display:none}
+ main{padding:40px 0 72px}
+ .prose p,.prose li{font-size:.92rem}
+ .fbar{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="bg-lines" aria-hidden="true"></div>
+
+<nav>
+ <div class="nb">
+  <a href="index.html" class="logo" aria-label="KYSER home">
+   <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER
+  </a>
+  <div class="nlinks">
+   <a href="index.html">Home</a>
+   <a href="terms.html">Terms</a>
+   <a href="privacy.html" aria-current="page">Privacy</a>
+   <a href="index.html#download" class="btn btn-y">Join Kyser</a>
+  </div>
+ </div>
+</nav>
+
+<main>
+ <div class="wrap">
+  <a href="index.html" class="back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back to Kyser</a>
+  <span class="eyebrow">Legal</span>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 1 January 2026</p>
+  <hr class="rule">
+
+  <div class="prose">
+   <p>At Kyser, your journey is personal — and so is your data. This Privacy Policy explains what we collect, how we use it, and the choices you have.</p>
+
+   <h2><span>01</span>Information We Collect</h2>
+   <ul>
+    <li><strong>Account information:</strong> name, email address, profile photo and login credentials.</li>
+    <li><strong>Activity data:</strong> distance, pace, duration, route, elevation, workout type and achievements.</li>
+    <li><strong>Location data:</strong> GPS data used to record routes and map your activities.</li>
+    <li><strong>Device information:</strong> device type, operating system, app version, and identifiers.</li>
+    <li><strong>Usage information:</strong> screens viewed, features used, and interactions with the community.</li>
+   </ul>
+
+   <h2><span>02</span>How We Use Your Information</h2>
+   <ul>
+    <li>To record and display your activities, stats, streaks and achievements.</li>
+    <li>To power social features such as following, cheers, comments and community events.</li>
+    <li>To provide analytics such as training load and race predictions.</li>
+    <li>To improve the Service, fix issues and develop new features.</li>
+    <li>To communicate important updates, security alerts and (with consent) marketing.</li>
+   </ul>
+
+   <h2><span>03</span>Location Data &amp; Your Controls</h2>
+   <p>Kyser only records location while you start an activity. You can disable location permissions in your device settings at any time, though route-based features will not work without them. You can also hide the start and end points of your routes from other members.</p>
+
+   <h2><span>04</span>Sharing &amp; Disclosure</h2>
+   <p>We never sell your personal data. We share information only with:</p>
+   <ul>
+    <li>Service providers who help us operate the app (hosting, analytics, notifications), under strict confidentiality obligations.</li>
+    <li>Other Kyser members, for information you choose to share publicly or with followers.</li>
+    <li>Authorities, where required by applicable law or to protect rights and safety.</li>
+   </ul>
+
+   <h2><span>05</span>Data Retention</h2>
+   <p>We retain your personal data for as long as your account is active. If you delete your account, we delete or anonymise your personal data within a reasonable period, except where we are required to retain it by law.</p>
+
+   <h2><span>06</span>Security</h2>
+   <p>We use encryption in transit, access controls and other safeguards to protect your information. No system is completely secure, so please keep your account credentials private.</p>
+
+   <h2><span>07</span>Your Rights &amp; Choices</h2>
+   <ul>
+    <li>Access, correct or export the personal data we hold about you.</li>
+    <li>Delete your account and associated data.</li>
+    <li>Manage profile visibility and activity-sharing preferences in-app.</li>
+    <li>Opt out of marketing communications at any time.</li>
+   </ul>
+
+   <h2><span>08</span>Children’s Privacy</h2>
+   <p>Kyser is not directed at children under 13, and we do not knowingly collect personal data from them. If you believe a child has provided us with personal data, please contact us so we can remove it.</p>
+
+   <h2><span>09</span>Cookies &amp; Analytics</h2>
+   <p>Our website uses limited cookies and analytics to understand how the Service is used and to improve performance. You can control cookies through your browser settings.</p>
+
+   <h2><span>10</span>International Transfers</h2>
+   <p>Your data may be processed in countries other than your own. Where required, we use appropriate safeguards to ensure your data remains protected.</p>
+
+   <h2><span>11</span>Changes to This Policy</h2>
+   <p>We may update this Privacy Policy from time to time. We will notify you of significant changes and update the “last updated” date above.</p>
+
+   <h2><span>12</span>Contact</h2>
+   <p>For privacy questions or requests, contact <a href="mailto:privacy@kyser.app">privacy@kyser.app</a>.</p>
+
+   <div class="note"><strong>Also read:</strong> our <a href="terms.html">Terms of Service</a> set out the rules for using Kyser.</div>
+  </div>
+ </div>
+</main>
+
+<footer>
+ <div class="fbar">
+  <div class="fl">
+   <a href="index.html">Home</a>
+   <a href="index.html#vision">Our Vision</a>
+   <a href="runners.html">Runners Showcase</a>
+   <a href="privacy.html">Privacy Policy</a>
+   <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="copy">© 2026 Kyser. Made in India.</p>
+ </div>
+</footer>
+</body>
+</html>

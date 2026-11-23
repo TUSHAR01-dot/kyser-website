@@ -1,0 +1,316 @@
+<!-- runners.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KYSER — Runner Showcase</title>
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080B;--bg2:#0f0d16;--p:#8B5CF6;--p2:#5b34c7;--pd:#1a1230;--y:#FFD500;--t:#f4f2fa;--m:#a29cb8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;background:var(--bg)}
+body{font-family:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+section{position:relative;padding:110px 0}
+h1,h2{font-weight:800;line-height:1.02;letter-spacing:-.03em;text-transform:uppercase}
+h2{font-size:clamp(2rem,5vw,3.8rem)}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--p);font-weight:600;margin-bottom:18px;display:block}
+.glow{position:absolute;border-radius:50%;filter:blur(110px);background:var(--p);opacity:.28;pointer-events:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:14px;font-weight:700;font-size:.95rem;border:2px solid transparent;transition:transform .25s,box-shadow .25s,background .25s,color .25s;cursor:pointer;font-family:inherit}
+.btn-y{background:var(--y);color:#000}
+.btn-y:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 34px -6px rgba(255,213,0,.55)}
+.btn-o{border-color:var(--p);color:var(--t);background:transparent}
+.btn-o:hover{background:var(--p);transform:translateY(-3px);box-shadow:0 12px 34px -8px rgba(139,92,246,.7)}
+.btn-y svg{transition:transform .25s}.btn-y:hover svg{transform:translateX(4px)}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.s{background:rgba(8,8,11,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(139,92,246,.18)}
+.nb{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.16em;font-size:1.1rem}
+.links{display:flex;align-items:center;gap:30px;font-size:.88rem;color:var(--m)}
+.links a:not(.btn){transition:color .2s}.links a:not(.btn):hover{color:#fff}
+.links .btn{padding:10px 20px;font-size:.85rem;border-radius:11px}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
+.burger i{position:absolute;left:9px;right:9px;height:2px;background:#fff;transition:.3s}
+.burger i:nth-child(1){top:14px}.burger i:nth-child(2){top:25px}
+.burger.o i:nth-child(1){top:20px;transform:rotate(45deg)}.burger.o i:nth-child(2){top:20px;transform:rotate(-45deg)}
+/* footer */
+footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
+.fr{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.fr p{color:var(--m);margin-top:12px;font-size:.9rem}
+.fl{display:flex;flex-wrap:wrap;gap:14px 28px;color:var(--m);font-size:.88rem;max-width:560px}
+.fl a:hover{color:var(--p)}
+.copy{margin-top:44px;color:#6c6685;font-size:.78rem}
+/* reveal */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ===== Runner Showcase — The Guild ===== */
+.runners{background:radial-gradient(ellipse at 50% 0%,#1a1230,transparent 68%);overflow:hidden;min-height:100vh}
+.rhead{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.rhead h2{margin-bottom:0}
+.rsub{color:var(--m);max-width:600px;margin-top:22px;font-size:1.05rem}
+.rsub b{color:var(--t);font-weight:600}
+
+/* guild oath strip */
+.rmotto{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:54px;border-top:1px solid rgba(139,92,246,.25);border-bottom:1px solid rgba(139,92,246,.25)}
+.rmotto div{padding:22px 22px;font-size:.92rem;font-weight:600;letter-spacing:-.01em;border-right:1px solid rgba(139,92,246,.25);transition:background .3s}
+.rmotto div:last-child{border-right:0}
+.rmotto div:hover{background:rgba(139,92,246,.1)}
+.rmotto span{display:inline-block;color:var(--p);font-size:.66rem;letter-spacing:.2em;margin-right:10px;font-weight:800;vertical-align:2px}
+
+/* grid */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:22px;margin-top:42px}
+
+/* card */
+.rcard{position:relative;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.22);border-radius:22px;padding:14px 14px 18px;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,border-color .35s;animation:cardIn .55s cubic-bezier(.2,.7,.3,1) backwards;overflow:hidden}
+.rcard::after{content:"";position:absolute;inset:0;border-radius:22px;background:radial-gradient(circle at 100% 0%,rgba(255,213,0,.14),transparent 55%);opacity:0;transition:opacity .35s;pointer-events:none}
+.rcard:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.6);box-shadow:0 26px 55px -24px rgba(139,92,246,.85)}
+.rcard:hover::after{opacity:1}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* photo */
+.rphoto{position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--p),#c4b0ff);display:grid;place-items:center;margin-bottom:16px}
+.rphoto .rf{font-weight:800;font-size:2.2rem;color:#fff;letter-spacing:.02em;line-height:1}
+.rphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+.rtop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;padding:0 6px}
+.rrank{font-size:2rem;font-weight:800;color:transparent;-webkit-text-stroke:1.4px var(--p);letter-spacing:-.03em;line-height:.95}
+.rclass{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--p);font-weight:700;text-align:right;line-height:1.5;max-width:120px}
+
+.rname{font-size:1.1rem;font-weight:700;letter-spacing:-.01em;line-height:1.3;padding:0 6px}
+.rquote{color:var(--m);font-size:.86rem;line-height:1.55;margin-top:8px;flex:1;padding:0 6px}
+.rquote em{font-style:normal;color:#cfc5ee}
+
+.rstats{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0 6px}
+.rstat{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:600;letter-spacing:.04em;color:var(--t);background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);border-radius:999px;padding:5px 11px;white-space:nowrap}
+.rstat i{width:6px;height:6px;border-radius:50%;background:var(--y);flex:none;box-shadow:0 0 8px rgba(255,213,0,.7)}
+
+.rig{display:inline-flex;align-items:center;gap:7px;margin:16px 6px 0;padding-top:14px;border-top:1px solid rgba(139,92,246,.18);color:var(--m);font-size:.84rem;transition:color .2s;width:calc(100% - 12px)}
+.rig:hover{color:var(--p)}
+.rig svg{flex:none;opacity:.9}
+
+@media(max-width:940px){
+ .links{gap:22px}
+ .rmotto{grid-template-columns:1fr}
+ .rmotto div{border-right:0;border-bottom:1px solid rgba(139,92,246,.25)}
+ .rmotto div:last-child{border-bottom:0}
+}
+@media(max-width:760px){
+ .burger{display:block}
+ .links{position:fixed;top:0;left:0;right:0;flex-direction:column;justify-content:center;gap:26px;height:100dvh;background:rgba(8,8,11,.97);font-size:1.3rem;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+ .links.o{transform:none}
+ .links .btn{font-size:1rem;padding:14px 28px}
+ section{padding:80px 0}
+ .rgrid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:34px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap nb">
+ <a href="index.html" class="logo" aria-label="KYSER">
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER
+ </a>
+ <button class="burger" id="bg" aria-label="Menu"><i></i><i></i></button>
+ <div class="links" id="lk">
+  <a href="index.html#vision">Our Vision</a>
+  <a href="index.html#why">Why Kyser</a>
+  <a href="index.html#download">Download</a>
+  <a href="runners.html" class="btn btn-o">Runners Showcase</a>
+  <a href="index.html#download" class="btn btn-y">Join Kyser</a>
+ </div>
+</div></nav>
+
+<section class="runners" id="runners" style="padding-top:150px">
+ <div class="glow" style="width:460px;height:300px;left:50%;top:-40px;transform:translateX(-50%);opacity:.16"></div>
+ <div class="wrap">
+  <div class="rhead rv">
+   <div>
+    <span class="eyebrow">The Guild · Runner Showcase</span>
+    <h2>Meet our runners.</h2>
+   </div>
+  </div>
+  <p class="rsub rv">Every runner in this guild carries a name, a title, and a story. These are the <b>legends of the early mornings</b> — the ones who lace up before the city wakes, chase hills for fun, and count streaks like treasure.</p>
+
+  <div class="rmotto rv">
+   <div><span>01</span>Every run is a quest.</div>
+   <div><span>02</span>Every finish is a legend.</div>
+   <div><span>03</span>Every runner belongs.</div>
+  </div>
+
+  <div class="rgrid" id="rgrid"></div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div class="fr">
+   <div><a href="index.html" class="logo"><svg width="26" height="26" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER</a><p>Every journey counts.</p></div>
+   <div class="fl"><a href="index.html#vision">Our Vision</a><a href="runners.html">Runners Showcase</a><a href="#">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Contact</a></div>
+  </div>
+  <p class="copy">© 2026 Kyser. Made in India.</p>
+ </div>
+</footer>
+
+<script>
+/* Nav + reveal */
+(function(){
+ var nav=document.getElementById('nav'),bg=document.getElementById('bg'),lk=document.getElementById('lk');
+ addEventListener('scroll',function(){nav.classList.toggle('s',scrollY>30)},{passive:true});
+ function tog(f){bg.classList.toggle('o',f);lk.classList.toggle('o',f)}
+ bg.onclick=function(){tog(!lk.classList.contains('o'))};
+ lk.querySelectorAll('a').forEach(function(a){a.onclick=function(){tog(false)}});
+ var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+ document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+})();
+
+/* Runner showcase — guild roster with photos */
+(function(){
+ var grid=document.getElementById('rgrid');
+ if(!grid) return;
+
+ var GUILD=[
+  {
+   name:'Aarav Sharma',
+   ig:'aarav.runs',
+   photo:'',
+   title:'The Dawn Chaser',
+   quote:'<em>“First light, first kilometre.”</em> He has never once missed a sunrise — and the sunrise knows it.',
+   stats:['1,240 km logged','37-day streak']
+  },
+  {
+   name:'Meera Nair',
+   ig:'meera.cycles',
+   photo:'',
+   title:'The Gear Wraith',
+   quote:'<em>“Two wheels. Zero excuses.”</em> Sighted on Bengaluru flyovers before the streetlights blink out.',
+   stats:['3,860 km ridden','24-day streak']
+  },
+  {
+   name:'Rohan Verma',
+   ig:'rohan.10k',
+   photo:'',
+   title:'The Sub-Sixty Sorcerer',
+   quote:'<em>“Under an hour, or we run again.”</em> His 10K split is whispered about like a spell.',
+   stats:['980 km logged','51-day streak']
+  },
+  {
+   name:'Ananya Iyer',
+   ig:'ananya.moves',
+   photo:'',
+   title:'The Trail Cartographer',
+   quote:'<em>“Maps the hills nobody names.”</em> Carries chalk in her pocket for paths that don’t exist yet.',
+   stats:['2,105 km logged','19-day streak']
+  },
+  {
+   name:'Kabir Singh',
+   ig:'kabir.trails',
+   photo:'',
+   title:'The Nightwatch',
+   quote:'<em>“Runs at 2 a.m. Sleeps at 4.”</em> The city has a quiet hour, and it belongs to him.',
+   stats:['1,670 km logged','62-day streak']
+  },
+  {
+   name:'Ishita Rao',
+   ig:'ishita.runs',
+   photo:'',
+   title:'The Comeback Arc',
+   quote:'<em>“Started at 800 metres. Now she closes the loop.”</em> The guild’s favourite redemption story, still being written.',
+   stats:['740 km logged','28-day streak']
+  }
+ ];
+
+ var IG_ICON='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>';
+
+ function initials(name){
+  var parts=(name||'').trim().split(/\s+/).filter(Boolean);
+  if(!parts.length) return '?';
+  return (parts[0].charAt(0)+(parts[1]?parts[1].charAt(0):'')).toUpperCase();
+ }
+ function igUrl(h){ return 'https://instagram.com/'+encodeURIComponent(h); }
+
+ function makeCard(r,i){
+  var card=document.createElement('article');
+  card.className='rcard';
+  card.style.animationDelay=(Math.min(i,10)*55)+'ms';
+
+  /* photo */
+  var photo=document.createElement('div');
+  photo.className='rphoto';
+  var fb=document.createElement('span');
+  fb.className='rf';
+  fb.textContent=initials(r.name);
+  photo.appendChild(fb);
+  if(r.photo){
+   var img=document.createElement('img');
+   img.alt=r.name;
+   img.loading='lazy';
+   img.addEventListener('error',function(){ img.remove(); });
+   img.src=r.photo;
+   photo.appendChild(img);
+  }
+
+  /* rank + title */
+  var top=document.createElement('div');
+  top.className='rtop';
+  var rank=document.createElement('span');
+  rank.className='rrank';
+  rank.textContent=String(i+1).padStart(2,'0');
+  var cls=document.createElement('span');
+  cls.className='rclass';
+  cls.textContent=r.title;
+  top.appendChild(rank);
+  top.appendChild(cls);
+
+  /* name */
+  var h3=document.createElement('h3');
+  h3.className='rname';
+  h3.textContent=r.name;
+
+  /* legend */
+  var quote=document.createElement('p');
+  quote.className='rquote';
+  quote.innerHTML=r.quote;
+
+  /* stats */
+  var stats=document.createElement('div');
+  stats.className='rstats';
+  r.stats.forEach(function(s){
+   var chip=document.createElement('span');
+   chip.className='rstat';
+   chip.innerHTML='<i></i>';
+   chip.appendChild(document.createTextNode(s));
+   stats.appendChild(chip);
+  });
+
+  /* instagram */
+  var a=document.createElement('a');
+  a.className='rig';
+  a.href=igUrl(r.ig);
+  a.target='_blank';
+  a.rel='noopener noreferrer';
+  a.setAttribute('aria-label',r.name+' on Instagram');
+  a.innerHTML=IG_ICON+'<span></span>';
+  a.querySelector('span').textContent='@'+r.ig;
+
+  card.appendChild(photo);
+  card.appendChild(top);
+  card.appendChild(h3);
+  card.appendChild(quote);
+  card.appendChild(stats);
+  card.appendChild(a);
+  return card;
+ }
+
+ GUILD.forEach(function(r,i){ grid.appendChild(makeCard(r,i)); });
+})();
+</script>
+</body>
+</html>

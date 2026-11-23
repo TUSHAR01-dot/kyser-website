@@ -1,0 +1,181 @@
+<!-- terms.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KYSER — Terms of Service</title>
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Kyser Terms of Service — the rules that govern your use of the Kyser app and website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080B;--bg2:#0f0d16;--p:#8B5CF6;--p2:#5b34c7;--pd:#1a1230;--y:#FFD500;--t:#f4f2fa;--m:#a29cb8;box-sizing:border-box;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6;overflow-x:hidden;min-height:100dvh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(900px,100% - 40px);margin-inline:auto}
+
+/* background grid lines (same as site) */
+.bg-lines{position:fixed;inset:0;z-index:0;pointer-events:none;
+ background-image:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 150px),
+  repeating-linear-gradient(90deg,rgba(139,92,246,.09) 0 1px,transparent 1px 600px);
+ background-position:center top}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:.86rem;border:2px solid transparent;transition:transform .25s,box-shadow .25s,background .25s,color .25s;cursor:pointer;font-family:inherit;justify-content:center}
+.btn-y{background:var(--y);color:#000}
+.btn-y:hover{transform:translateY(-2px);box-shadow:0 10px 28px -6px rgba(255,213,0,.5)}
+.btn-o{border-color:var(--p);color:var(--t);background:transparent}
+.btn-o:hover{background:var(--p);transform:translateY(-2px)}
+
+/* nav */
+nav{position:sticky;top:0;left:0;right:0;z-index:50;background:rgba(8,8,11,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(139,92,246,.18)}
+.nb{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;width:min(1160px,100% - 40px);margin-inline:auto}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.16em;font-size:1.05rem}
+.nlinks{display:flex;align-items:center;gap:22px;font-size:.85rem;color:var(--m)}
+.nlinks a:not(.btn){transition:color .2s}
+.nlinks a:not(.btn):hover{color:#fff}
+.nlinks a[aria-current="page"]{color:#fff}
+
+/* page */
+main{position:relative;z-index:2;flex:1;padding:64px 0 96px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--m);font-size:.82rem;letter-spacing:.04em;margin-bottom:28px;transition:color .2s}
+.back:hover{color:var(--p)}
+.back svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.eyebrow{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--p);font-weight:600;display:block;margin-bottom:14px}
+h1{font-weight:800;font-size:clamp(1.9rem,5.4vw,3.2rem);line-height:1.04;letter-spacing:-.03em;text-transform:uppercase}
+.updated{color:var(--m);font-size:.82rem;margin-top:12px}
+.rule{height:1px;background:linear-gradient(90deg,rgba(139,92,246,.6),rgba(139,92,246,0));margin:34px 0 4px;border:0}
+
+.prose h2{font-weight:700;font-size:1.02rem;letter-spacing:-.01em;text-transform:none;color:#fff;margin:34px 0 10px;line-height:1.3}
+.prose h2:first-child{margin-top:0}
+.prose h2 span{color:var(--p);margin-right:10px;font-weight:800;font-size:.86rem;letter-spacing:.1em}
+.prose p,.prose li{color:var(--m);font-size:.95rem;line-height:1.78}
+.prose p{margin-bottom:12px}
+.prose ul{margin:8px 0 14px 20px}
+.prose li{margin-bottom:7px}
+.prose li::marker{color:var(--p)}
+.prose strong{color:#e6e0f6;font-weight:600}
+.prose a{color:var(--p);text-decoration:underline;text-underline-offset:2px}
+.prose a:hover{color:#c4b0ff}
+.note{margin-top:40px;padding:18px 20px;border:1px solid rgba(139,92,246,.3);border-radius:14px;background:rgba(139,92,246,.07);font-size:.88rem;color:var(--m)}
+.note strong{color:#fff}
+
+/* footer */
+footer{position:relative;z-index:2;border-top:1px solid rgba(139,92,246,.2);padding:34px 0 40px}
+.fbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;width:min(1160px,100% - 40px);margin-inline:auto}
+.fl{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--m);font-size:.84rem}
+.fl a:hover{color:var(--p)}
+.copy{color:#6c6685;font-size:.76rem}
+
+@media(max-width:620px){
+ .nlinks a:not(.btn){display:none}
+ main{padding:40px 0 72px}
+ .prose p,.prose li{font-size:.92rem}
+ .fbar{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="bg-lines" aria-hidden="true"></div>
+
+<nav>
+ <div class="nb">
+  <a href="index.html" class="logo" aria-label="KYSER home">
+   <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER
+  </a>
+  <div class="nlinks">
+   <a href="index.html">Home</a>
+   <a href="terms.html" aria-current="page">Terms</a>
+   <a href="privacy.html">Privacy</a>
+   <a href="index.html#download" class="btn btn-y">Join Kyser</a>
+  </div>
+ </div>
+</nav>
+
+<main>
+ <div class="wrap">
+  <a href="index.html" class="back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back to Kyser</a>
+  <span class="eyebrow">Legal</span>
+  <h1>Terms of Service</h1>
+  <p class="updated">Last updated: 1 January 2026</p>
+  <hr class="rule">
+
+  <div class="prose">
+   <p>Welcome to Kyser. These Terms of Service (“Terms”) govern your access to and use of the Kyser mobile application, website and related services (together, the “Service”). By creating an account or using the Service, you agree to these Terms.</p>
+
+   <h2><span>01</span>Acceptance of Terms</h2>
+   <p>By downloading, accessing or using Kyser, you confirm that you have read, understood and agree to be bound by these Terms and our <a href="privacy.html">Privacy Policy</a>. If you do not agree, please do not use the Service.</p>
+
+   <h2><span>02</span>Who Can Use Kyser</h2>
+   <p>You must be at least 13 years old to use Kyser. If you are under 18, you may use the Service only with the involvement and consent of a parent or legal guardian.</p>
+
+   <h2><span>03</span>Your Account</h2>
+   <ul>
+    <li>You are responsible for the accuracy of the information you provide.</li>
+    <li>You are responsible for keeping your login credentials secure.</li>
+    <li>You must notify us immediately of any unauthorised use of your account.</li>
+   </ul>
+
+   <h2><span>04</span>Acceptable Use</h2>
+   <p>You agree not to misuse the Service. In particular, you will not:</p>
+   <ul>
+    <li>Upload false activity data, or manipulate leaderboards, streaks or rankings.</li>
+    <li>Harass, abuse, threaten or impersonate other members.</li>
+    <li>Post content that is unlawful, hateful, obscene or infringes anyone’s rights.</li>
+    <li>Attempt to reverse engineer, scrape or disrupt the Service.</li>
+   </ul>
+
+   <h2><span>05</span>Activity Data &amp; Health Disclaimer</h2>
+   <p>Kyser records activity and location data to provide tracking, insights and community features. Distance, pace, calories and other metrics are estimates and may not be exact.</p>
+   <p><strong>Kyser is not a medical device and does not provide medical advice.</strong> Always consult a qualified professional before starting a new fitness programme. You exercise at your own risk.</p>
+
+   <h2><span>06</span>Subscriptions &amp; Payments</h2>
+   <p>Some features may require a paid Kyser Pro subscription. Fees, billing cycles and renewals will be shown before purchase. Subscriptions purchased through an app store are governed by that store’s payment and refund policies.</p>
+
+   <h2><span>07</span>Your Content</h2>
+   <p>You retain ownership of the content you post. By posting, you grant Kyser a non-exclusive, worldwide licence to host, display and distribute that content within the Service. You are responsible for ensuring you have the rights to share it.</p>
+
+   <h2><span>08</span>Intellectual Property</h2>
+   <p>The Kyser name, logo, design, software and content (excluding your content) are owned by Kyser and protected by applicable laws. You may not copy or use them without our written permission.</p>
+
+   <h2><span>09</span>Termination</h2>
+   <p>You may stop using the Service at any time and request deletion of your account. We may suspend or terminate access if these Terms are breached or if required by law.</p>
+
+   <h2><span>10</span>Third-Party Services</h2>
+   <p>The Service may link to or integrate with third-party services such as maps, analytics or social platforms. We are not responsible for their content or practices.</p>
+
+   <h2><span>11</span>Limitation of Liability</h2>
+   <p>To the maximum extent permitted by law, Kyser is not liable for indirect, incidental or consequential damages, or for any injury, loss or damage arising from your use of the Service or reliance on activity data.</p>
+
+   <h2><span>12</span>Governing Law</h2>
+   <p>These Terms are governed by the laws of India. Disputes shall be subject to the exclusive jurisdiction of the courts of India.</p>
+
+   <h2><span>13</span>Changes to These Terms</h2>
+   <p>We may update these Terms from time to time. Material changes will be communicated in-app or by email. Continued use of the Service after changes take effect constitutes acceptance.</p>
+
+   <h2><span>14</span>Contact</h2>
+   <p>Questions about these Terms? Reach us at <a href="mailto:legal@kyser.app">legal@kyser.app</a>.</p>
+
+   <div class="note"><strong>Also read:</strong> our <a href="privacy.html">Privacy Policy</a> explains what data we collect and how you stay in control of it.</div>
+  </div>
+ </div>
+</main>
+
+<footer>
+ <div class="fbar">
+  <div class="fl">
+   <a href="index.html">Home</a>
+   <a href="index.html#vision">Our Vision</a>
+   <a href="runners.html">Runners Showcase</a>
+   <a href="privacy.html">Privacy Policy</a>
+   <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="copy">© 2026 Kyser. Made in India.</p>
+ </div>
+</footer>
+</body>
+</html>
