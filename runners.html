@@ -13,15 +13,17 @@
 :root{--bg:#08080B;--bg2:#0f0d16;--p:#8B5CF6;--p2:#5b34c7;--pd:#1a1230;--y:#FFD500;--t:#f4f2fa;--m:#a29cb8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
 *,*::before,*::after{box-sizing:inherit;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px;background:var(--bg)}
-body{font-family:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
+body{font-family:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6;overflow-x:hidden;-webkit-text-size-adjust:100%}
+body.lock{overflow:hidden}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .wrap{width:min(1160px,100% - 40px);margin-inline:auto}
 section{position:relative;padding:110px 0}
 h1,h2{font-weight:800;line-height:1.02;letter-spacing:-.03em;text-transform:uppercase}
 h2{font-size:clamp(2rem,5vw,3.8rem)}
 .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--p);font-weight:600;margin-bottom:18px;display:block}
 .glow{position:absolute;border-radius:50%;filter:blur(110px);background:var(--p);opacity:.28;pointer-events:none}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:14px;font-weight:700;font-size:.95rem;border:2px solid transparent;transition:transform .25s,box-shadow .25s,background .25s,color .25s;cursor:pointer;font-family:inherit}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:14px;font-weight:700;font-size:.95rem;border:2px solid transparent;transition:transform .25s,box-shadow .25s,background .25s,color .25s;cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .btn-y{background:var(--y);color:#000}
 .btn-y:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 34px -6px rgba(255,213,0,.55)}
 .btn-o{border-color:var(--p);color:var(--t);background:transparent}
@@ -31,15 +33,15 @@ h2{font-size:clamp(2rem,5vw,3.8rem)}
 nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
 nav.s{background:rgba(8,8,11,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(139,92,246,.18)}
 .nb{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.16em;font-size:1.1rem}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.16em;font-size:1.1rem;position:relative;z-index:60;min-height:44px}
 .logo img{height:38px;width:auto;display:block;mix-blend-mode:screen;flex:none}
 .links{display:flex;align-items:center;gap:34px;font-size:.88rem;color:var(--m)}
 .links a:not(.btn){padding:6px 0;transition:color .2s}.links a:not(.btn):hover{color:#fff}
 .links .btn{padding:10px 20px;font-size:.85rem;border-radius:11px}
-.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
-.burger i{position:absolute;left:9px;right:9px;height:2px;background:#fff;transition:.3s}
-.burger i:nth-child(1){top:14px}.burger i:nth-child(2){top:25px}
-.burger.o i:nth-child(1){top:20px;transform:rotate(45deg)}.burger.o i:nth-child(2){top:20px;transform:rotate(-45deg)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative;flex:none;padding:0;border-radius:10px}
+.burger i{position:absolute;left:10px;right:10px;height:2px;background:#fff;border-radius:2px;transition:top .3s ease,transform .3s ease}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:26px}
+.burger.o i:nth-child(1){top:21px;transform:rotate(45deg)}.burger.o i:nth-child(2){top:21px;transform:rotate(-45deg)}
 /* footer */
 footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 .fr{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
@@ -101,13 +103,56 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  .rmotto div{border-right:0;border-bottom:1px solid rgba(139,92,246,.25)}
  .rmotto div:last-child{border-bottom:0}
 }
+/* ---------- mobile nav ---------- */
+@media(max-width:880px){
+ .burger{display:block;position:relative;z-index:60}
+ .links{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:100vh;
+  height:100dvh;
+  z-index:55;
+  flex-direction:column;
+  justify-content:center;
+  gap:14px;
+  padding:calc(84px + env(safe-area-inset-top,0px)) 24px calc(32px + env(safe-area-inset-bottom,0px));
+  text-align:center;
+  background:rgba(8,8,11,.97);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  font-size:1.1rem;
+  color:var(--t);
+  transform:translateY(-102%);
+  visibility:hidden;
+  transition:transform .4s cubic-bezier(.7,0,.2,1),visibility .4s;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+ }
+ .links.o{transform:none;visibility:visible}
+ .links a:not(.btn){
+  padding:14px 0;
+  width:min(340px,100%);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  font-size:1.05rem;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+ }
+ .links .btn{
+  width:min(340px,100%);
+  padding:14px 20px;
+  font-size:.95rem;
+  min-height:48px;
+ }
+}
 @media(max-width:760px){
- .burger{display:block}
- .links{position:fixed;top:0;left:0;right:0;flex-direction:column;justify-content:center;gap:26px;height:100dvh;background:rgba(8,8,11,.97);font-size:1.3rem;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
- .links.o{transform:none}
- .links .btn{font-size:1rem;padding:14px 28px}
  section{padding:80px 0}
  .rgrid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:34px}
+}
+@media(max-width:520px){
+ .rgrid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
@@ -119,7 +164,7 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
   <img src="logo.png" alt="">
   <span>KYSER</span>
  </a>
- <button class="burger" id="bg" aria-label="Menu"><i></i><i></i></button>
+ <button class="burger" id="bg" aria-label="Open menu" aria-expanded="false" aria-controls="lk"><i></i><i></i></button>
  <div class="links" id="lk">
   <a href="index.html#vision">Our Vision</a>
   <a href="index.html#why">Why Kyser</a>
@@ -161,13 +206,25 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 </footer>
 
 <script>
-/* Nav + reveal */
 (function(){
- var nav=document.getElementById('nav'),bg=document.getElementById('bg'),lk=document.getElementById('lk');
+ var nav=document.getElementById('nav'),
+     bg=document.getElementById('bg'),
+     lk=document.getElementById('lk');
+
  addEventListener('scroll',function(){nav.classList.toggle('s',scrollY>30)},{passive:true});
- function tog(f){bg.classList.toggle('o',f);lk.classList.toggle('o',f)}
- bg.onclick=function(){tog(!lk.classList.contains('o'))};
- lk.querySelectorAll('a').forEach(function(a){a.onclick=function(){tog(false)}});
+
+ function setMenu(open){
+   lk.classList.toggle('o',open);
+   bg.classList.toggle('o',open);
+   bg.setAttribute('aria-expanded',open?'true':'false');
+   bg.setAttribute('aria-label',open?'Close menu':'Open menu');
+   document.body.classList.toggle('lock',open);
+ }
+ bg.addEventListener('click',function(){setMenu(!lk.classList.contains('o'))});
+ lk.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+ addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+ addEventListener('resize',function(){if(innerWidth>880&&lk.classList.contains('o'))setMenu(false)});
+
  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
  document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
 })();
@@ -178,54 +235,12 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  if(!grid) return;
 
  var GUILD=[
-  {
-   name:'Aarav Sharma',
-   ig:'aarav.runs',
-   photo:'',
-   title:'The Dawn Chaser',
-   quote:'<em>“First light, first kilometre.”</em> He has never once missed a sunrise — and the sunrise knows it.',
-   stats:['1,240 km logged','37-day streak']
-  },
-  {
-   name:'Meera Nair',
-   ig:'meera.cycles',
-   photo:'',
-   title:'The Gear Wraith',
-   quote:'<em>“Two wheels. Before the traffic.”</em> Sighted on Bengaluru flyovers before the streetlights blink out.',
-   stats:['3,860 km ridden','24-day streak']
-  },
-  {
-   name:'Rohan Verma',
-   ig:'rohan.10k',
-   photo:'',
-   title:'The Sub-Sixty Sorcerer',
-   quote:'<em>“Under an hour, or we run again.”</em> His 10K split is whispered about like a spell.',
-   stats:['980 km logged','51-day streak']
-  },
-  {
-   name:'Ananya Iyer',
-   ig:'ananya.moves',
-   photo:'',
-   title:'The Trail Cartographer',
-   quote:'<em>“Maps the hills nobody names.”</em> Carries chalk in her pocket for paths that don’t exist yet.',
-   stats:['2,105 km logged','19-day streak']
-  },
-  {
-   name:'Kabir Singh',
-   ig:'kabir.trails',
-   photo:'',
-   title:'The Nightwatch',
-   quote:'<em>“Runs at 2 a.m. Sleeps at 4.”</em> The city has a quiet hour, and it belongs to him.',
-   stats:['1,670 km logged','62-day streak']
-  },
-  {
-   name:'Ishita Rao',
-   ig:'ishita.runs',
-   photo:'',
-   title:'The Comeback Arc',
-   quote:'<em>“Started at 800 metres. Now she closes the loop.”</em> The comeback the guild keeps talking about.',
-   stats:['740 km logged','28-day streak']
-  }
+  {name:'Aarav Sharma',ig:'aarav.runs',photo:'',title:'The Dawn Chaser',quote:'<em>“First light, first kilometre.”</em> He has never once missed a sunrise — and the sunrise knows it.',stats:['1,240 km logged','37-day streak']},
+  {name:'Meera Nair',ig:'meera.cycles',photo:'',title:'The Gear Wraith',quote:'<em>“Two wheels. Before the traffic.”</em> Sighted on Bengaluru flyovers before the streetlights blink out.',stats:['3,860 km ridden','24-day streak']},
+  {name:'Rohan Verma',ig:'rohan.10k',photo:'',title:'The Sub-Sixty Sorcerer',quote:'<em>“Under an hour, or we run again.”</em> His 10K split is whispered about like a spell.',stats:['980 km logged','51-day streak']},
+  {name:'Ananya Iyer',ig:'ananya.moves',photo:'',title:'The Trail Cartographer',quote:'<em>“Maps the hills nobody names.”</em> Carries chalk in her pocket for paths that don’t exist yet.',stats:['2,105 km logged','19-day streak']},
+  {name:'Kabir Singh',ig:'kabir.trails',photo:'',title:'The Nightwatch',quote:'<em>“Runs at 2 a.m. Sleeps at 4.”</em> The city has a quiet hour, and it belongs to him.',stats:['1,670 km logged','62-day streak']},
+  {name:'Ishita Rao',ig:'ishita.runs',photo:'',title:'The Comeback Arc',quote:'<em>“Started at 800 metres. Now she closes the loop.”</em> The comeback the guild keeps talking about.',stats:['740 km logged','28-day streak']}
  ];
 
  var IG_ICON='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>';
@@ -241,7 +256,6 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
   var card=document.createElement('article');
   card.className='rcard';
 
-  /* photo */
   var photo=document.createElement('div');
   photo.className='rphoto';
   var fb=document.createElement('span');
@@ -250,62 +264,34 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
   photo.appendChild(fb);
   if(r.photo){
    var img=document.createElement('img');
-   img.alt=r.name;
-   img.loading='lazy';
+   img.alt=r.name; img.loading='lazy';
    img.addEventListener('error',function(){ img.remove(); });
    img.src=r.photo;
    photo.appendChild(img);
   }
 
-  /* rank + title */
-  var top=document.createElement('div');
-  top.className='rtop';
-  var rank=document.createElement('span');
-  rank.className='rrank';
-  rank.textContent=String(i+1).padStart(2,'0');
-  var cls=document.createElement('span');
-  cls.className='rclass';
-  cls.textContent=r.title;
-  top.appendChild(rank);
-  top.appendChild(cls);
+  var top=document.createElement('div'); top.className='rtop';
+  var rank=document.createElement('span'); rank.className='rrank'; rank.textContent=String(i+1).padStart(2,'0');
+  var cls=document.createElement('span'); cls.className='rclass'; cls.textContent=r.title;
+  top.appendChild(rank); top.appendChild(cls);
 
-  /* name */
-  var h3=document.createElement('h3');
-  h3.className='rname';
-  h3.textContent=r.name;
+  var h3=document.createElement('h3'); h3.className='rname'; h3.textContent=r.name;
+  var quote=document.createElement('p'); quote.className='rquote'; quote.innerHTML=r.quote;
 
-  /* legend */
-  var quote=document.createElement('p');
-  quote.className='rquote';
-  quote.innerHTML=r.quote;
-
-  /* stats */
-  var stats=document.createElement('div');
-  stats.className='rstats';
+  var stats=document.createElement('div'); stats.className='rstats';
   r.stats.forEach(function(s){
-   var chip=document.createElement('span');
-   chip.className='rstat';
-   chip.innerHTML='<i></i>';
-   chip.appendChild(document.createTextNode(s));
-   stats.appendChild(chip);
+   var chip=document.createElement('span'); chip.className='rstat'; chip.innerHTML='<i></i>';
+   chip.appendChild(document.createTextNode(s)); stats.appendChild(chip);
   });
 
-  /* instagram */
-  var a=document.createElement('a');
-  a.className='rig';
-  a.href=igUrl(r.ig);
-  a.target='_blank';
-  a.rel='noopener noreferrer';
+  var a=document.createElement('a'); a.className='rig';
+  a.href=igUrl(r.ig); a.target='_blank'; a.rel='noopener noreferrer';
   a.setAttribute('aria-label',r.name+' on Instagram');
   a.innerHTML=IG_ICON+'<span></span>';
   a.querySelector('span').textContent='@'+r.ig;
 
-  card.appendChild(photo);
-  card.appendChild(top);
-  card.appendChild(h3);
-  card.appendChild(quote);
-  card.appendChild(stats);
-  card.appendChild(a);
+  card.appendChild(photo); card.appendChild(top); card.appendChild(h3);
+  card.appendChild(quote); card.appendChild(stats); card.appendChild(a);
   return card;
  }
 
