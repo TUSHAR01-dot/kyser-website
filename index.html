@@ -52,13 +52,20 @@ nav.s{background:rgba(8,8,11,.78);backdrop-filter:blur(16px);-webkit-backdrop-fi
 .burger.o i:nth-child(1){top:20px;transform:rotate(45deg)}.burger.o i:nth-child(2){top:20px;transform:rotate(-45deg)}
 
 /* hero */
-.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden;
+ background-color:var(--bg);
+ background-image:
+  linear-gradient(180deg,rgba(8,8,11,.8) 0%,rgba(8,8,11,.5) 42%,rgba(8,8,11,.92) 100%),
+  url('./track-bg.jpg');
+ background-size:cover,cover;
+ background-position:center,center;
+ background-repeat:no-repeat,no-repeat}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:2}
 .hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
 .hero h1 span{background:linear-gradient(100deg,#c4b0ff,var(--p) 60%,#6d3fe0);-webkit-background-clip:text;background-clip:text;color:transparent}
 .dot{display:inline-block;width:.16em;height:.16em;background:var(--y);border-radius:50%;margin-left:.04em}
 .sub{font-size:clamp(1.05rem,2vw,1.35rem);font-weight:600;margin:26px 0 12px}
-.desc{color:var(--m);max-width:520px;margin-bottom:34px}
+.desc{color:#d6d1e4;max-width:520px;margin-bottom:34px}
 .cta{display:flex;flex-wrap:wrap;gap:14px}
 .stage{position:relative;height:640px;display:flex;justify-content:center;align-items:center}
 .stage .glow{width:420px;height:420px;top:90px;left:50%;transform:translateX(-50%);opacity:.5}
@@ -281,15 +288,43 @@ nav.s{background:rgba(8,8,11,.78);backdrop-filter:blur(16px);-webkit-backdrop-fi
 .three div:hover{background:rgba(139,92,246,.1)}
 .three span{display:block;color:var(--p);font-size:.8rem;letter-spacing:.2em;margin-bottom:10px}
 
-/* showcase */
-.show{overflow:hidden;background:var(--bg2)}
-.show h2{text-align:center;margin-bottom:70px}
-.phones{display:flex;justify-content:center;gap:34px;align-items:flex-end;position:relative;flex-wrap:wrap}
-.phones .phone:nth-child(2){margin-bottom:40px}
-.phones .glow{width:600px;height:300px;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.35}
-.cap{text-align:center;margin-top:22px;color:var(--m);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
-.cap b{display:block;color:#fff;font-size:.95rem;letter-spacing:.02em;text-transform:none;margin-bottom:2px}
-.pw{position:relative;z-index:2}
+/* real app screenshots */
+.shots{background:var(--bg2);text-align:center;overflow:hidden}
+.shots h2{max-width:760px;margin:0 auto 16px}
+.shots-sub{color:var(--m);font-size:1.05rem;max-width:600px;margin:0 auto 60px}
+.shots-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+ gap:26px;
+ max-width:960px;
+ margin:0 auto;
+ align-items:start}
+.shot{
+ position:relative;
+ margin:0;
+ border-radius:24px;
+ overflow:hidden;
+ background:#0a0810;
+ border:1px solid rgba(139,92,246,.25);
+ box-shadow:0 24px 60px -28px rgba(139,92,246,.7),0 0 0 1px rgba(255,255,255,.04) inset;
+ transition:transform .35s,box-shadow .35s,border-color .35s;
+ display:flex;
+ flex-direction:column}
+.shot:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.55);box-shadow:0 34px 80px -28px rgba(139,92,246,.95)}
+.shot img{
+ display:block;
+ width:100%;
+ aspect-ratio:9/19;
+ object-fit:cover;
+ object-position:top center;
+ background:#0a0810}
+.shot figcaption{
+ padding:13px 16px;
+ font-size:.8rem;
+ color:var(--m);
+ letter-spacing:.02em;
+ border-top:1px solid rgba(139,92,246,.15);
+ text-align:left}
 
 /* why */
 .why h2{margin-bottom:70px;max-width:760px}
@@ -341,8 +376,6 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  .three div:last-child{border-bottom:0}
  .item{grid-template-columns:56px 1fr;gap:4px 16px}
  .item p{grid-column:2}
- .phones{gap:30px}
- .phones .phone:nth-child(2){margin-bottom:0}
  .india .wrap{text-align:center}
  .india p{margin-inline:auto}
  .fl{justify-content:flex-start}
@@ -362,14 +395,13 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  section{padding:76px 0}
  .stage{transform:scale(.82);transform-origin:top center;height:520px}
  .float{display:none}
- .show h2{margin-bottom:50px}
  .why h2{margin-bottom:44px}
+ .shots-sub{margin-bottom:44px}
+ .shots-grid{grid-template-columns:1fr;gap:22px;max-width:380px}
 }
 @media(max-width:520px){
  .wrap{width:calc(100% - 32px)}
  .stage{transform:scale(.72);transform-origin:top center;height:450px}
- .phones{gap:26px}
- .cap{font-size:.7rem}
  .item .n{font-size:2rem}
  .fl{gap:12px 20px;font-size:.82rem}
 }
@@ -431,10 +463,25 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  </div>
 </section>
 
-<section class="show">
+<section class="shots" id="screenshots">
  <div class="wrap">
-  <h2 class="rv">The app, screen by screen.</h2>
-  <div class="phones rv" id="phones"><div class="glow"></div></div>
+  <span class="eyebrow rv">Inside the app</span>
+  <h2 class="rv">Straight from the app.</h2>
+  <p class="shots-sub rv">Three real screens — home, activity detail, and live tracking. No mockups.</p>
+  <div class="shots-grid rv">
+   <figure class="shot">
+    <img src="./screen1.png" alt="Kyser home screen with streak, activity feed, and bottom navigation" loading="lazy">
+    <figcaption>Home · streaks and following feed</figcaption>
+   </figure>
+   <figure class="shot">
+    <img src="./screen2.png" alt="Kyser activity detail screen with distance, splits, and achievements" loading="lazy">
+    <figcaption>Activity · splits and achievements</figcaption>
+   </figure>
+   <figure class="shot">
+    <img src="./screen3.png" alt="Kyser live run screen with route map and real-time stats" loading="lazy">
+    <figcaption>Live · route and real-time stats</figcaption>
+   </figure>
+  </div>
  </div>
 </section>
 
@@ -728,19 +775,6 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  var st=document.getElementById('stage');
  var hp1=T('t-home'); hp1.classList.add('p1'); st.appendChild(hp1);
  var hp2=T('t-live'); hp2.classList.add('p2'); st.appendChild(hp2);
-
- /* ---------- showcase phones ---------- */
- var ph=document.getElementById('phones');
- [['t-home','Home','Your day, your people'],
-  ['t-activity','Activity','Every step recorded'],
-  ['t-stats','Analytics','Know your load, not just your pace']].forEach(function(a){
-   var w=document.createElement('div'); w.className='pw rv';
-   w.appendChild(T(a[0]));
-   var c=document.createElement('div'); c.className='cap';
-   c.innerHTML='<b>'+a[1]+'</b>'+a[2];
-   w.appendChild(c);
-   ph.appendChild(w);
- });
 
  /* ---------- nav ---------- */
  var nav=document.getElementById('nav'),
