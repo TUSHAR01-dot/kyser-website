@@ -33,8 +33,9 @@ a{color:inherit;text-decoration:none}
 
 /* nav */
 nav{position:sticky;top:0;left:0;right:0;z-index:50;background:rgba(8,8,11,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(139,92,246,.18)}
-.nb{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;width:min(1160px,100% - 40px);margin-inline:auto}
+.nb{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px;width:min(1160px,100% - 40px);margin-inline:auto}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.16em;font-size:1.05rem}
+.logo img{height:38px;width:auto;display:block;mix-blend-mode:screen;flex:none}
 .nlinks{display:flex;align-items:center;gap:22px;font-size:.85rem;color:var(--m)}
 .nlinks a:not(.btn){transition:color .2s}
 .nlinks a:not(.btn):hover{color:#fff}
@@ -85,13 +86,14 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(139,92,246,.2);padd
 <nav>
  <div class="nb">
   <a href="index.html" class="logo" aria-label="KYSER home">
-   <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER
+   <img src="logo.png" alt="">
+   <span>KYSER</span>
   </a>
   <div class="nlinks">
    <a href="index.html">Home</a>
    <a href="terms.html">Terms</a>
    <a href="privacy.html" aria-current="page">Privacy</a>
-   <a href="index.html#download" class="btn btn-y">Join Kyser</a>
+   <a href="index.html#top" class="btn btn-y">Join Kyser</a>
   </div>
  </div>
 </nav>

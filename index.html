@@ -12,7 +12,7 @@
 <style>
 :root{--bg:#08080B;--bg2:#0f0d16;--p:#8B5CF6;--p2:#5b34c7;--pd:#1a1230;--y:#FFD500;--t:#f4f2fa;--m:#a29cb8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
 *,*::before,*::after{box-sizing:inherit;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px;background:var(--bg)}
+html{scroll-behavior:smooth;scroll-padding-top:72px;background:var(--bg)}
 body{font-family:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--t);line-height:1.6;overflow-x:hidden}
 body.lock{overflow:hidden}
 a{color:inherit;text-decoration:none}
@@ -40,10 +40,11 @@ h2{font-size:clamp(2rem,5vw,3.8rem)}
 /* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
 nav.s{background:rgba(8,8,11,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(139,92,246,.18)}
-.nb{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.nb{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.16em;font-size:1.1rem;position:relative;z-index:60}
-.links{display:flex;align-items:center;gap:30px;font-size:.88rem;color:var(--m)}
-.links a:not(.btn){transition:color .2s}.links a:not(.btn):hover{color:#fff}
+.logo img{height:38px;width:auto;display:block;mix-blend-mode:screen;flex:none}
+.links{display:flex;align-items:center;gap:34px;font-size:.88rem;color:var(--m)}
+.links a:not(.btn){padding:6px 0;transition:color .2s}.links a:not(.btn):hover{color:#fff}
 .links .btn{padding:10px 20px;font-size:.85rem;border-radius:11px}
 .burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative;flex:none}
 .burger i{position:absolute;left:9px;right:9px;height:2px;background:#fff;transition:.3s}
@@ -60,17 +61,15 @@ nav.s{background:rgba(8,8,11,.78);backdrop-filter:blur(16px);-webkit-backdrop-fi
 .desc{color:var(--m);max-width:520px;margin-bottom:34px}
 .cta{display:flex;flex-wrap:wrap;gap:14px}
 .stage{position:relative;height:640px;display:flex;justify-content:center;align-items:center}
-.stage .glow{width:420px;height:420px;top:90px;left:50%;transform:translateX(-50%);opacity:.5;animation:pulse 6s ease-in-out infinite}
+.stage .glow{width:420px;height:420px;top:90px;left:50%;transform:translateX(-50%);opacity:.5}
 .stage .phone{position:absolute;z-index:3}
-.stage .phone.p1{left:50%;margin-left:-190px;transform:rotate(-6deg);animation:fl 7s ease-in-out infinite}
-.stage .phone.p2{left:50%;margin-left:-30px;top:60px;transform:rotate(7deg) scale(.92);animation:fl 7s ease-in-out -3s infinite}
-@keyframes fl{50%{translate:0 -14px}}
-@keyframes pulse{50%{opacity:.32;scale:1.12}}
-.float{position:absolute;z-index:6;background:rgba(20,16,32,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(139,92,246,.4);border-radius:18px;padding:14px 18px;box-shadow:0 20px 50px -15px #000;animation:fl 6s ease-in-out -1s infinite}
+.stage .phone.p1{left:50%;margin-left:-190px;transform:rotate(-6deg)}
+.stage .phone.p2{left:50%;margin-left:-30px;top:60px;transform:rotate(7deg) scale(.92)}
+.float{position:absolute;z-index:6;background:rgba(20,16,32,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(139,92,246,.4);border-radius:18px;padding:14px 18px;box-shadow:0 20px 50px -15px #000}
 .float small{display:block;color:var(--m);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
 .float b{font-size:1.5rem;letter-spacing:-.02em}
 .float i{display:inline-block;width:7px;height:7px;background:var(--y);border-radius:50%;margin-right:7px}
-.f1{right:-6px;top:80px}.f2{left:-4px;bottom:90px;animation-delay:-4s}
+.f1{right:-6px;top:80px}.f2{left:-4px;bottom:90px}
 
 /* phone shell */
 .phone{width:270px;height:560px;border-radius:44px;padding:10px;background:linear-gradient(145deg,#3a3350,#14111d 40%,#2a2340);box-shadow:0 40px 90px -20px rgba(139,92,246,.5),0 0 0 1px rgba(255,255,255,.08) inset;position:relative;flex:none}
@@ -314,12 +313,6 @@ nav.s{background:rgba(8,8,11,.78);backdrop-filter:blur(16px);-webkit-backdrop-fi
 @keyframes ring{from{scale:.4;opacity:1}to{scale:3.2;opacity:0}}
 .lbl{fill:#cfc5ee;font-size:11px;font-family:Sora,sans-serif;letter-spacing:.06em}
 
-/* final */
-.fin{text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 100%,#6d3fe0 0%,#2a1660 40%,var(--bg) 85%)}
-.fin h2{font-size:clamp(2.2rem,6vw,5rem);max-width:900px;margin:0 auto 22px}
-.fin p{color:#d6cdf2;font-size:1.15rem;margin-bottom:40px}
-.fin .btn{padding:19px 38px;font-size:1.02rem;letter-spacing:.04em}
-
 /* footer */
 footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 .fr{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
@@ -375,7 +368,6 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 @media(max-width:520px){
  .wrap{width:calc(100% - 32px)}
  .stage{transform:scale(.72);transform-origin:top center;height:450px}
- .fin .btn{width:100%;padding:16px 20px;font-size:.86rem;letter-spacing:.02em}
  .phones{gap:26px}
  .cap{font-size:.7rem}
  .item .n{font-size:2rem}
@@ -393,15 +385,16 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 
 <nav id="nav"><div class="wrap nb">
  <a href="#top" class="logo" aria-label="KYSER">
-  <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER
+  <img src="logo.png" alt="">
+  <span>KYSER</span>
  </a>
  <button class="burger" id="bg" aria-label="Open menu" aria-expanded="false" aria-controls="lk"><i></i><i></i></button>
  <div class="links" id="lk">
   <a href="#vision">Our Vision</a>
   <a href="#why">Why Kyser</a>
-  <a href="#download">Download</a>
+  <a href="#top">Download</a>
   <a href="runners.html" class="btn btn-o">Runners Showcase</a>
-  <a href="#download" class="btn btn-y">Join Kyser</a>
+  <a href="#top" class="btn btn-y">Join Kyser</a>
  </div>
 </div></nav>
 
@@ -411,9 +404,9 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
   <div class="rv">
    <h1>Your journey.<br><span>Your rules.</span><i class="dot"></i></h1>
    <p class="sub">Fitness is better when it’s built around you.</p>
-   <p class="desc">Meet Kyser. A fitness community that puts people first. Track your activities, celebrate your progress, and become part of something bigger. Because every journey deserves recognition.</p>
+   <p class="desc">Meet Kyser — a fitness community that puts people first. Log your runs and rides, track your progress, and share it with people who get it.</p>
    <div class="cta">
-    <a href="#download" class="btn btn-y">Download Kyser <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#top" class="btn btn-y">Download Kyser <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a href="#vision" class="btn btn-o">Discover Our Vision</a>
    </div>
   </div>
@@ -429,18 +422,18 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  <div class="glow" style="width:500px;height:300px;left:50%;top:30%;transform:translateX(-50%);opacity:.18"></div>
  <div class="wrap">
   <h2 class="rv">We don’t believe fitness has a <em>finish line.</em></h2>
-  <p class="l rv">We believe in the person running their first kilometre just as much as the person completing their hundredth marathon. At Kyser, your journey matters. Your effort matters. And you always come first.</p>
+  <p class="l rv">The person running their first kilometre gets the same respect as the one finishing their hundredth marathon. Kyser is built for the people who lace up — not just the ones on the podium.</p>
   <div class="three rv">
    <div><span>01</span>Every journey matters.</div>
-   <div><span>02</span>Every achievement deserves recognition.</div>
-   <div><span>03</span>Every individual belongs.</div>
+   <div><span>02</span>Every achievement counts.</div>
+   <div><span>03</span>Everyone belongs.</div>
   </div>
  </div>
 </section>
 
 <section class="show">
  <div class="wrap">
-  <h2 class="rv">Meet your new fitness companion.</h2>
+  <h2 class="rv">The app, screen by screen.</h2>
   <div class="phones rv" id="phones"><div class="glow"></div></div>
  </div>
 </section>
@@ -448,10 +441,10 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 <section class="why" id="why">
  <div class="wrap">
   <span class="eyebrow">Why Kyser</span>
-  <h2 class="rv">Built different.<br>Built for you.</h2>
-  <div class="item rv"><span class="n">01</span><h3>People before numbers</h3><p>You’re more than your pace, distance, or rankings.</p></div>
-  <div class="item rv"><span class="n">02</span><h3>Your journey, your way</h3><p>Whether you’re starting out or pushing boundaries, Kyser celebrates your progress.</p></div>
-  <div class="item rv"><span class="n">03</span><h3>A community that moves together</h3><p>Because the best journeys are even better when shared.</p></div>
+  <h2 class="rv">What matters here.</h2>
+  <div class="item rv"><span class="n">01</span><h3>People before numbers</h3><p>You’re more than your pace, distance, or ranking.</p></div>
+  <div class="item rv"><span class="n">02</span><h3>Your pace, your progress</h3><p>Start where you are. Kyser tracks what matters to you — not what doesn’t.</p></div>
+  <div class="item rv"><span class="n">03</span><h3>Find your people</h3><p>The best part of a run is who you do it with. Kyser makes that easy.</p></div>
  </div>
 </section>
 
@@ -459,8 +452,8 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  <div class="wrap">
   <div class="rv">
    <span class="eyebrow">India first</span>
-   <h2>Made for India. Built for every journey.</h2>
-   <p>From early morning runs in Delhi to cycling routes in Bengaluru and weekend fitness communities in Mumbai, Kyser is here to bring India’s fitness enthusiasts closer together.</p>
+   <h2>Made in India. Built for how India moves.</h2>
+   <p>Morning runs in Delhi. Cycling routes in Bengaluru. Weekend meetups in Mumbai. Kyser is built for the people already out there — and the ones about to start.</p>
   </div>
   <div class="mapw rv">
    <div class="glow"></div>
@@ -481,18 +474,10 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  </div>
 </section>
 
-<section class="fin" id="download">
- <div class="wrap">
-  <h2 class="rv">Your next chapter starts here.</h2>
-  <p class="rv">Come as you are. Start where you are. Let’s make every journey count.</p>
-  <a href="#" class="btn btn-y rv">GET STARTED WITH KYSER <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
- </div>
-</section>
-
 <footer>
  <div class="wrap">
   <div class="fr">
-   <div><a href="#top" class="logo"><svg width="26" height="26" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER</a><p>Every journey counts.</p></div>
+   <div><a href="#top" class="logo"><img src="logo.png" alt=""><span>KYSER</span></a><p>Every journey counts.</p></div>
    <div class="fl">
     <a href="#vision">Our Vision</a>
     <a href="runners.html">Runners Showcase</a>

@@ -30,10 +30,11 @@ h2{font-size:clamp(2rem,5vw,3.8rem)}
 /* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
 nav.s{background:rgba(8,8,11,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(139,92,246,.18)}
-.nb{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nb{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.16em;font-size:1.1rem}
-.links{display:flex;align-items:center;gap:30px;font-size:.88rem;color:var(--m)}
-.links a:not(.btn){transition:color .2s}.links a:not(.btn):hover{color:#fff}
+.logo img{height:38px;width:auto;display:block;mix-blend-mode:screen;flex:none}
+.links{display:flex;align-items:center;gap:34px;font-size:.88rem;color:var(--m)}
+.links a:not(.btn){padding:6px 0;transition:color .2s}.links a:not(.btn):hover{color:#fff}
 .links .btn{padding:10px 20px;font-size:.85rem;border-radius:11px}
 .burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
 .burger i{position:absolute;left:9px;right:9px;height:2px;background:#fff;transition:.3s}
@@ -68,11 +69,10 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:22px;margin-top:42px}
 
 /* card */
-.rcard{position:relative;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.22);border-radius:22px;padding:14px 14px 18px;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,border-color .35s;animation:cardIn .55s cubic-bezier(.2,.7,.3,1) backwards;overflow:hidden}
+.rcard{position:relative;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.22);border-radius:22px;padding:14px 14px 18px;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,border-color .35s;overflow:hidden}
 .rcard::after{content:"";position:absolute;inset:0;border-radius:22px;background:radial-gradient(circle at 100% 0%,rgba(255,213,0,.14),transparent 55%);opacity:0;transition:opacity .35s;pointer-events:none}
 .rcard:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.6);box-shadow:0 26px 55px -24px rgba(139,92,246,.85)}
 .rcard:hover::after{opacity:1}
-@keyframes cardIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 
 /* photo */
 .rphoto{position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--p),#c4b0ff);display:grid;place-items:center;margin-bottom:16px}
@@ -116,15 +116,16 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 
 <nav id="nav"><div class="wrap nb">
  <a href="index.html" class="logo" aria-label="KYSER">
-  <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER
+  <img src="logo.png" alt="">
+  <span>KYSER</span>
  </a>
  <button class="burger" id="bg" aria-label="Menu"><i></i><i></i></button>
  <div class="links" id="lk">
   <a href="index.html#vision">Our Vision</a>
   <a href="index.html#why">Why Kyser</a>
-  <a href="index.html#download">Download</a>
+  <a href="index.html#top">Download</a>
   <a href="runners.html" class="btn btn-o">Runners Showcase</a>
-  <a href="index.html#download" class="btn btn-y">Join Kyser</a>
+  <a href="index.html#top" class="btn btn-y">Join Kyser</a>
  </div>
 </div></nav>
 
@@ -137,11 +138,11 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
     <h2>Meet our runners.</h2>
    </div>
   </div>
-  <p class="rsub rv">Every runner in this guild carries a name, a title, and a story. These are the <b>legends of the early mornings</b> — the ones who lace up before the city wakes, chase hills for fun, and count streaks like treasure.</p>
+  <p class="rsub rv">Every runner here has a name, a title, and a reason they lace up. These are the ones out before the city wakes — chasing hills, keeping streaks, putting in the miles.</p>
 
   <div class="rmotto rv">
-   <div><span>01</span>Every run is a quest.</div>
-   <div><span>02</span>Every finish is a legend.</div>
+   <div><span>01</span>Every run has a story.</div>
+   <div><span>02</span>Every finish is earned.</div>
    <div><span>03</span>Every runner belongs.</div>
   </div>
 
@@ -152,7 +153,7 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
 <footer>
  <div class="wrap">
   <div class="fr">
-   <div><a href="index.html" class="logo"><svg width="26" height="26" viewBox="0 0 32 32" fill="none"><path d="M6 4v24M6 16 22 4M11 14l15 14" stroke="#8B5CF6" stroke-width="4" stroke-linecap="square"/><circle cx="26" cy="6" r="2.6" fill="#FFD500"/></svg>KYSER</a><p>Every journey counts.</p></div>
+   <div><a href="index.html" class="logo"><img src="logo.png" alt=""><span>KYSER</span></a><p>Every journey counts.</p></div>
    <div class="fl"><a href="index.html#vision">Our Vision</a><a href="runners.html">Runners Showcase</a><a href="#">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Contact</a></div>
   </div>
   <p class="copy">© 2026 Kyser. Made in India.</p>
@@ -190,7 +191,7 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
    ig:'meera.cycles',
    photo:'',
    title:'The Gear Wraith',
-   quote:'<em>“Two wheels. Zero excuses.”</em> Sighted on Bengaluru flyovers before the streetlights blink out.',
+   quote:'<em>“Two wheels. Before the traffic.”</em> Sighted on Bengaluru flyovers before the streetlights blink out.',
    stats:['3,860 km ridden','24-day streak']
   },
   {
@@ -222,7 +223,7 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
    ig:'ishita.runs',
    photo:'',
    title:'The Comeback Arc',
-   quote:'<em>“Started at 800 metres. Now she closes the loop.”</em> The guild’s favourite redemption story, still being written.',
+   quote:'<em>“Started at 800 metres. Now she closes the loop.”</em> The comeback the guild keeps talking about.',
    stats:['740 km logged','28-day streak']
   }
  ];
@@ -239,7 +240,6 @@ footer{padding:60px 0 40px;border-top:1px solid rgba(139,92,246,.2)}
  function makeCard(r,i){
   var card=document.createElement('article');
   card.className='rcard';
-  card.style.animationDelay=(Math.min(i,10)*55)+'ms';
 
   /* photo */
   var photo=document.createElement('div');
